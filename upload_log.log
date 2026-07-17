@@ -1,0 +1,81 @@
+12:26:11 | INFO     | ============================================================
+12:26:11 | INFO     | AWS S3 STATIC WEBSITE DEPLOYMENT - STARTING
+12:26:11 | INFO     | ============================================================
+12:26:11 | INFO     | Connecting to AWS...
+12:26:11 | INFO     | Found credentials in shared credentials file: ~/.aws/credentials
+12:26:12 | INFO     | Connected to AWS successfully (region: ap-south-1)
+12:26:12 | INFO     | ============================================================
+12:26:12 | INFO     | STEP 1/5: BUCKET SETUP
+12:26:12 | INFO     | ============================================================
+12:26:12 | INFO     | Bucket 'my-static-website-bucket-change-me-123' not found. Creating it...
+12:26:13 | INFO     | Bucket 'my-static-website-bucket-change-me-123' created successfully.
+12:26:13 | INFO     | ============================================================
+12:26:13 | INFO     | STEP 2/5: PUBLIC ACCESS CONFIGURATION
+12:26:13 | INFO     | ============================================================
+12:26:13 | INFO     | Public access block disabled for 'my-static-website-bucket-change-me-123'.
+12:26:13 | INFO     | ============================================================
+12:26:13 | INFO     | STEP 3/5: BUCKET POLICY
+12:26:13 | INFO     | ============================================================
+12:26:14 | INFO     | Public read-only bucket policy attached.
+12:26:14 | INFO     | ============================================================
+12:26:14 | INFO     | STEP 4/5: STATIC WEBSITE HOSTING
+12:26:14 | INFO     | ============================================================
+12:26:14 | INFO     | Static website hosting enabled.
+12:26:14 | INFO     | ============================================================
+12:26:14 | INFO     | STEP 5/5: FILE UPLOAD
+12:26:14 | INFO     | ============================================================
+12:26:14 | INFO     | ============================================================
+12:26:14 | INFO     | UPLOADING WEBSITE FILES
+12:26:14 | INFO     | ============================================================
+12:26:14 | INFO     | Uploaded: assets/logo.svg                          (image/svg+xml)
+12:26:14 | INFO     | Uploaded: index.html                               (text/html)
+12:26:14 | INFO     | Uploaded: script.js                                (application/javascript)
+12:26:14 | INFO     | Uploaded: style.css                                (text/css)
+12:26:14 | INFO     | ============================================================
+12:26:14 | INFO     | DEPLOYMENT SUCCESSFUL
+12:26:14 | INFO     | ============================================================
+12:26:14 | INFO     | Files uploaded : 4
+12:26:14 | INFO     | Bucket name    : my-static-website-bucket-change-me-123
+12:26:14 | INFO     | Region         : ap-south-1
+12:26:14 | INFO     | Website URL    : http://my-static-website-bucket-change-me-123.s3-website.ap-south-1.amazonaws.com
+12:26:14 | INFO     | Open the URL above in your browser.
+08:16:47 | INFO     | ============================================================
+08:16:47 | INFO     | AWS S3 STATIC WEBSITE DEPLOYMENT - STARTING
+08:16:47 | INFO     | ============================================================
+08:16:47 | INFO     | Connecting to AWS...
+08:16:47 | INFO     | Found credentials in shared credentials file: ~/.aws/credentials
+08:16:48 | INFO     | Connected to AWS successfully (region: ap-south-1)
+08:16:48 | INFO     | ============================================================
+08:16:48 | INFO     | STEP 1/5: BUCKET SETUP
+08:16:48 | INFO     | ============================================================
+08:16:48 | INFO     | Bucket 'my-static-website-bucket-change-me-123' already exists. Reusing it.
+08:16:48 | INFO     | ============================================================
+08:16:48 | INFO     | STEP 2/5: PUBLIC ACCESS CONFIGURATION
+08:16:48 | INFO     | ============================================================
+08:16:48 | INFO     | Public access block disabled for 'my-static-website-bucket-change-me-123'.
+08:16:48 | INFO     | ============================================================
+08:16:48 | INFO     | STEP 3/5: BUCKET POLICY
+08:16:48 | INFO     | ============================================================
+08:16:48 | INFO     | Public read-only bucket policy attached.
+08:16:48 | INFO     | ============================================================
+08:16:48 | INFO     | STEP 4/5: STATIC WEBSITE HOSTING
+08:16:48 | INFO     | ============================================================
+08:16:49 | INFO     | Static website hosting enabled.
+08:16:49 | INFO     | ============================================================
+08:16:49 | INFO     | STEP 5/5: FILE UPLOAD
+08:16:49 | INFO     | ============================================================
+08:16:49 | INFO     | ============================================================
+08:16:49 | INFO     | UPLOADING WEBSITE FILES
+08:16:49 | INFO     | ============================================================
+08:16:49 | INFO     | Uploaded: assets/logo.svg                          (image/svg+xml)
+08:16:49 | INFO     | Uploaded: index.html                               (text/html)
+08:16:49 | INFO     | Uploaded: script.js                                (application/javascript)
+08:16:49 | INFO     | Uploaded: style.css                                (text/css)
+08:16:49 | INFO     | ============================================================
+08:16:49 | INFO     | DEPLOYMENT SUCCESSFUL
+08:16:49 | INFO     | ============================================================
+08:16:49 | INFO     | Files uploaded : 4
+08:16:49 | INFO     | Bucket name    : my-static-website-bucket-change-me-123
+08:16:49 | INFO     | Region         : ap-south-1
+08:16:49 | INFO     | Website URL    : http://my-static-website-bucket-change-me-123.s3-website.ap-south-1.amazonaws.com
+08:16:49 | INFO     | Open the URL above in your browser.
