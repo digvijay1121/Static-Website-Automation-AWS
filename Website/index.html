@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>CloudDeploy &mdash; Automated S3 Static Website Hosting</title>
+<meta name="description" content="Automate static website deployment to Amazon S3 with a single Python command." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<!-- ============ NAV ============ -->
+<header class="nav" id="top">
+  <div class="nav__inner">
+    <a href="#top" class="nav__brand">
+      <span class="nav__brand-mark">▲</span> CloudDeploy
+    </a>
+    <nav class="nav__links">
+      <a href="#features">Features</a>
+      <a href="#workflow">Workflow</a>
+      <a href="#about-aws">About&nbsp;AWS</a>
+      <a href="#get-started">Get Started</a>
+    </nav>
+    <a href="#get-started" class="btn btn--ghost nav__cta">View on GitHub</a>
+    <button class="nav__burger" id="burger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="hero__glow" aria-hidden="true"></div>
+  <div class="hero__inner">
+    <div class="hero__copy">
+      <p class="eyebrow">Free&nbsp;Tier &middot; boto3 &middot; Amazon S3</p>
+      <h1 class="hero__title">
+        Ship a static site to <span class="grad-text">Amazon S3</span> with one command.
+      </h1>
+      <p class="hero__sub">
+        CloudDeploy is a lightweight Python automation script that creates your bucket,
+        configures public hosting, uploads every file with the correct MIME type, and
+        hands you a live URL &mdash; no console clicking required.
+      </p>
+      <div class="hero__actions">
+        <a href="#get-started" class="btn btn--primary">Deploy your site</a>
+        <a href="#workflow" class="btn btn--outline">See how it works</a>
+      </div>
+      <div class="hero__stats">
+        <div><strong>$0.00</strong><span>AWS Free Tier only</span></div>
+        <div><strong>&lt;60s</strong><span>average deploy time</span></div>
+        <div><strong>1</strong><span>python command</span></div>
+      </div>
+    </div>
+
+    <div class="hero__visual" aria-hidden="true">
+      <div class="terminal">
+        <div class="terminal__bar">
+          <span class="dot dot--r"></span><span class="dot dot--y"></span><span class="dot dot--g"></span>
+          <span class="terminal__title">python upload_website.py</span>
+        </div>
+        <pre class="terminal__body" id="terminal-body"></pre>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FEATURES ============ -->
+<section class="section" id="features">
+  <p class="eyebrow eyebrow--center">Why CloudDeploy</p>
+  <h2 class="section__title">Everything the manual console click-through does &mdash; automated.</h2>
+
+  <div class="grid grid--features">
+    <article class="card">
+      <div class="card__icon">🪣</div>
+      <h3>Bucket automation</h3>
+      <p>Creates the S3 bucket only if it doesn't already exist, so the script is safe to re-run anytime.</p>
+    </article>
+    <article class="card">
+      <div class="card__icon">📤</div>
+      <h3>Recursive upload</h3>
+      <p>Walks your website folder and uploads every file, preserving nested folder structure automatically.</p>
+    </article>
+    <article class="card">
+      <div class="card__icon">🧠</div>
+      <h3>Smart MIME detection</h3>
+      <p>Detects Content-Type per file so HTML renders, CSS applies, and images display &mdash; not download prompts.</p>
+    </article>
+    <article class="card">
+      <div class="card__icon">🌐</div>
+      <h3>Hosting configuration</h3>
+      <p>Enables static website hosting and sets index/error documents through the SDK, not the console.</p>
+    </article>
+    <article class="card">
+      <div class="card__icon">🔐</div>
+      <h3>Least-privilege policy</h3>
+      <p>Attaches a public read-only bucket policy &mdash; visitors can view files, nobody can write or delete.</p>
+    </article>
+    <article class="card">
+      <div class="card__icon">📜</div>
+      <h3>Logs &amp; error handling</h3>
+      <p>Every step is logged to console and file, with clear exceptions instead of raw AWS tracebacks.</p>
+    </article>
+  </div>
+</section>
+
+<!-- ============ WORKFLOW ============ -->
+<section class="section section--alt" id="workflow">
+  <p class="eyebrow eyebrow--center">Project workflow</p>
+  <h2 class="section__title">From local folder to live URL</h2>
+
+  <div class="pipeline">
+    <div class="pipeline__track" aria-hidden="true"></div>
+
+    <div class="pipeline__step">
+      <div class="pipeline__node">01</div>
+      <h4>Run the script</h4>
+      <p>Developer runs <code>python upload_website.py</code> from the project root.</p>
+    </div>
+    <div class="pipeline__step">
+      <div class="pipeline__node">02</div>
+      <h4>boto3 connects</h4>
+      <p>The SDK authenticates using your local AWS CLI credentials.</p>
+    </div>
+    <div class="pipeline__step">
+      <div class="pipeline__node">03</div>
+      <h4>Bucket created</h4>
+      <p>S3 bucket is created (or reused) and public access is configured.</p>
+    </div>
+    <div class="pipeline__step">
+      <div class="pipeline__node">04</div>
+      <h4>Files uploaded</h4>
+      <p>Every website file is uploaded with the correct content type.</p>
+    </div>
+    <div class="pipeline__step">
+      <div class="pipeline__node">05</div>
+      <h4>Hosting enabled</h4>
+      <p>Static website hosting is switched on for the bucket.</p>
+    </div>
+    <div class="pipeline__step">
+      <div class="pipeline__node">06</div>
+      <h4>URL returned</h4>
+      <p>The live website endpoint is printed straight to your terminal.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ABOUT AWS ============ -->
+<section class="section" id="about-aws">
+  <div class="about">
+    <div class="about__copy">
+      <p class="eyebrow">About the stack</p>
+      <h2 class="section__title section__title--left">Built entirely on AWS Free Tier</h2>
+      <p class="about__text">
+        This project intentionally uses only services within the AWS Free Tier: Amazon S3 for
+        storage and hosting, IAM for secure access, and the AWS CLI / boto3 SDK for automation.
+        No servers, no containers, no ongoing compute cost &mdash; just object storage configured
+        to behave like a web server.
+      </p>
+      <ul class="about__list">
+        <li><span>S3</span> Object storage &amp; static website hosting</li>
+        <li><span>IAM</span> Scoped user credentials for the script</li>
+        <li><span>CLI</span> Local credential configuration</li>
+        <li><span>boto3</span> Python SDK driving every AWS call</li>
+      </ul>
+    </div>
+    <div class="about__diagram">
+      <div class="flowbox">Developer</div>
+      <div class="flowarrow">↓</div>
+      <div class="flowbox">Python Script (boto3)</div>
+      <div class="flowarrow">↓</div>
+      <div class="flowbox flowbox--accent">Amazon S3 Bucket</div>
+      <div class="flowarrow">↓</div>
+      <div class="flowbox">Static Website Hosting</div>
+      <div class="flowarrow">↓</div>
+      <div class="flowbox flowbox--accent2">Live Website URL</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CTA / GET STARTED ============ -->
+<section class="section section--cta" id="get-started">
+  <div class="cta">
+    <h2>Deploy your first site in under a minute</h2>
+    <p>Clone the repo, drop your HTML/CSS/JS into <code>website/</code>, set your bucket name, and run the script.</p>
+    <div class="cta__code">
+      <pre><code>git clone https://github.com/your-username/StaticWebsiteAutomation.git
+cd StaticWebsiteAutomation
+pip install -r requirements.txt
+python upload_website.py</code></pre>
+    </div>
+    <a href="#top" class="btn btn--primary">Back to top ↑</a>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <div class="footer__inner">
+    <div>
+      <p class="nav__brand footer__brand"><span class="nav__brand-mark">▲</span> CloudDeploy</p>
+      <p class="footer__tagline">Static website automation on AWS S3, powered by Python &amp; boto3.</p>
+    </div>
+    <div class="footer__links">
+      <a href="#features">Features</a>
+      <a href="#workflow">Workflow</a>
+      <a href="#about-aws">About AWS</a>
+      <a href="#get-started">Get Started</a>
+    </div>
+  </div>
+  <p class="footer__copyright">Built as a B.Tech AWS Free Tier mini project &middot; No paid services used.</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
